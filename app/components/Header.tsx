@@ -33,14 +33,14 @@ function Header() {
          </button>
         </div>
         <div
-        className={`flex flex-col p-20-10 justify-between fixed top-[96px] right-0 h-24 w-64 bg-[#013b94] transform ${
-          burgerOpen ? 'translate-x-0' : 'translate-x-full'
-        } transition-transform duration-300 ease-in-out lg:hidden`}
-      >
-          <Link href='#' className='text-sm font-semibold leading-6 text-white'>
+        className={`flex flex-col p-20-10 justify-around fixed top-[96px] right-0 h-24 w-64 bg-[#013b94] transform ${
+          burgerOpen ? 'translate-x-0' : 'translate-x-full'}
+          transition-transform duration-300 ease-in-out lg:flex-row lg:static lg:items-baseline lg:w-auto lg:h-auto lg:bg-transparent lg:transform-none`}
+         >
+          <Link href='#' className='text-sm font-semibold leading-6 text-white lg:mt-0 lg:ml-10'>
             <span className="text-white">Hotels</span>
           </Link>
-          <Link href='#' className='text-sm font-semibold leading-6 text-white'>
+          <Link href='#' className='text-sm font-semibold leading-6 text-white lg:mt-0 lg:ml-10'>
             <span className="text-white">Tickets</span>
           </Link>
         </div>
