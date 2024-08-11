@@ -20,7 +20,6 @@ import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -65,8 +64,6 @@ function SearchForm() {
  })
 
  function onSubmit(values: z.infer<typeof formSchema>) {
-  console.log(values)
-
   const checkin_day = values.dates.from.getDate().toString()
   const checkin_month = (values.dates.from.getMonth() + 1).toString()
   const checkin_year = values.dates.from.getFullYear().toString()
@@ -80,17 +77,17 @@ function SearchForm() {
   dispatch(setCityName(values.cityname))
   dispatch(setCheckInDate(checkin))
   dispatch(setCheckOutDate(checkout))
-  dispatch(setNumOfAdults(parseInt(values.num_of_adults)))
-  dispatch(setNumOfChildren(parseInt(values.num_of_children)))
-  dispatch(setRooms(parseInt(values.rooms)))
+  dispatch(setNumOfAdults(values.num_of_adults))
+  dispatch(setNumOfChildren(values.num_of_children))
+  dispatch(setRooms(values.rooms))
 
   const url = new URL('https://www.booking.com/searchresults.html')
   url.searchParams.set('ss', values.cityname)
-  url.searchParams.set('checkin', checkin)
-  url.searchParams.set('checkout', checkout)
   url.searchParams.set('group_adults', values.num_of_adults)
   url.searchParams.set('group_children', values.num_of_children)
   url.searchParams.set('no_rooms', values.rooms)
+  url.searchParams.set('checkin', checkin)
+  url.searchParams.set('checkout', checkout)
 
   router.push(`/search?url=${url.href}`)
  }
