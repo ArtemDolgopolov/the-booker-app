@@ -101,10 +101,20 @@ export async function fetchResults(searchParams: SearchParams) {
       _fns: [
        {
         _fn: "xpath_one",
-        _args: [".//div[@class='c324bdcee4 ec7ca45eb7 ff880b64f3']/text()"],
+        _args: [".//div[@class='e8acaa0d22 ab107395cb c60bada9e4']/text()"],
        },
       ],
      },
+     distance: {
+    _fns: [
+     {
+      _fn: "xpath_one",
+      _args: [
+       ".//span[contains(@class, 'cf35c10683')]/span[contains(@class, 'cdebd92b49')]/span[@data-testid='distance']/text()",
+     ],
+     },
+    ],
+   },
     },
    },
    total_listings: {
@@ -115,6 +125,7 @@ export async function fetchResults(searchParams: SearchParams) {
      },
     ],
    },
+   
   },
  };
 
@@ -136,7 +147,7 @@ export async function fetchResults(searchParams: SearchParams) {
   }
 
   const result: Result = data.results[0];
-  console.log(result);
+  console.log(result.content.listings);
   return result;
 } catch (err) {
   console.error('Fetch error', err);

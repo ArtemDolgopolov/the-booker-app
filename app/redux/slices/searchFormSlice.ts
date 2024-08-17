@@ -8,7 +8,7 @@ export interface searchFormData {
    },
    num_of_adults: string,
    num_of_children: string,
-   rooms: string
+   rooms: string,
 }
 
 const initialState: searchFormData = {
@@ -19,7 +19,7 @@ const initialState: searchFormData = {
    },
    num_of_adults: '1',
    num_of_children: '0',
-   rooms: '1'
+   rooms: '1',
 }
 
 const searchFormSlice = createSlice({
